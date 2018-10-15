@@ -1,13 +1,12 @@
 #include <iostream>
 
-std::string szyfrCezara(){
+std::string szyfrCezara(std::string slowo, int klucz){
 
-    int klucz;
-    std::string slowo, szyfr;
+    std::string  szyfr;
 
-    std::cout << "Podaj slowo do zaszyfrowania i liczbe jako klucz: \n";
-    std::cin >> slowo;
-    std::cin >> klucz;
+//    std::cout << "Podaj slowo do zaszyfrowania i liczbe jako klucz: \n";
+//    std::cin >> slowo;
+//    std::cin >> klucz;
 
     klucz=klucz%26;
 
@@ -17,8 +16,38 @@ std::string szyfrCezara(){
         }else if(96<int(i) && int(i)<123){
             szyfr.append(1, char((int(i)-97 + klucz)%26 + 97));
         }else{
-            std::cout << "NIEWLASCIWE ZNAKI";
+            szyfr.append(" ");
         }
     }
     return szyfr;
+}
+
+void cezar(){
+
+    int i, klucz;
+    std::string text, wynik;
+    //
+    std::cout << "Wybierz opcje [1]szyfrowanie, [2]deszyfrowanie: \n";
+    std::cin >> i;
+    //
+    std::cin.ignore();
+    std::cout << "Podaj tekst: \n";
+    std::getline(std::cin, text);
+    //
+    std::cout << "Podaj klucz: \n";
+    std::cin >> klucz;
+
+    switch(i){
+        case 1:
+            wynik = szyfrCezara(text, klucz);
+            break;
+        case 2:
+            wynik = szyfrCezara(text, -1*(klucz));
+            break;
+        default:
+            std::cout << "BLAD";
+            break;
+    }
+
+    std::cout << wynik;
 }
