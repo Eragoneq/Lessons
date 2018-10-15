@@ -1,5 +1,3 @@
-#ifndef CEZAR
-#define CEZAR
 #include <iostream>
 
 std::string szyfrCezara(){
@@ -14,9 +12,13 @@ std::string szyfrCezara(){
     klucz=klucz%26;
 
     for (char i : slowo) {
-        szyfr.append(1, char((int(i) + klucz)%26));
+        if(64<int(i) && int(i)<91){
+            szyfr.append(1, char((int(i)-65 + klucz)%26 + 65));
+        }else if(96<int(i) && int(i)<123){
+            szyfr.append(1, char((int(i)-97 + klucz)%26 + 97));
+        }else{
+            std::cout << "NIEWLASCIWE ZNAKI";
+        }
     }
     return szyfr;
 }
-
-#endif
