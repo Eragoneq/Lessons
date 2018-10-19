@@ -1,24 +1,24 @@
 #include <iostream>
 
-std::string szyfrCezara(std::string slowo, int klucz){
+std::string szyfrCezara(std::string slowo, int klucz) {
 
-    std::string  szyfr;
+    std::string szyfr;
 
-    klucz=klucz%26;
+    klucz = klucz % 26;
 
     for (char i : slowo) {
-        if(64<int(i) && int(i)<91){
-            szyfr.append(1, char((int(i)-65 + klucz)%26 + 65));
-        }else if(96<int(i) && int(i)<123){
-            szyfr.append(1, char((int(i)-97 + klucz)%26 + 97));
-        }else{
+        if (64 < int(i) && int(i) < 91) {
+            szyfr.append(1, char((int(i) - 65 + klucz) % 26 + 65));
+        } else if (96 < int(i) && int(i) < 123) {
+            szyfr.append(1, char((int(i) - 97 + klucz) % 26 + 97));
+        } else {
             szyfr.append(" ");
         }
     }
     return szyfr;
 }
 
-void runSzyfrCezara(){
+void runSzyfrCezara() {
 
     int i, klucz;
     std::string text, wynik;
@@ -33,12 +33,12 @@ void runSzyfrCezara(){
     std::cout << "Podaj klucz: \n";
     std::cin >> klucz;
 
-    switch(i){
+    switch (i) {
         case 1:
             wynik = szyfrCezara(text, klucz);
             break;
         case 2:
-            wynik = szyfrCezara(text, -1*(klucz));
+            wynik = szyfrCezara(text, -1 * (klucz));
             break;
         default:
             std::cout << "BLAD";
