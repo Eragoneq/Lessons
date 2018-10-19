@@ -4,10 +4,6 @@ std::string szyfrCezara(std::string slowo, int klucz){
 
     std::string  szyfr;
 
-//    std::cout << "Podaj slowo do zaszyfrowania i liczbe jako klucz: \n";
-//    std::cin >> slowo;
-//    std::cin >> klucz;
-
     klucz=klucz%26;
 
     for (char i : slowo) {
@@ -22,7 +18,7 @@ std::string szyfrCezara(std::string slowo, int klucz){
     return szyfr;
 }
 
-void cezar(){
+void runSzyfrCezara(){
 
     int i, klucz;
     std::string text, wynik;
