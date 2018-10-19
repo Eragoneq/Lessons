@@ -1,12 +1,12 @@
 #include <iostream>
 
-std::string szyfrAfiniczny(std::string slowo, int mnoznik, int klucz, bool szyfruj){
+std::string szyfrAfiniczny(std::string slowo, int mnoznik, int klucz, bool szyfruj) {
 
-    std::string  szyfr;
+    std::string szyfr;
 
-    klucz=klucz%26;
+    klucz = klucz % 26;
 
-    if(szyfruj) {
+    if (szyfruj) {
         for (char i : slowo) {
             if (64 < int(i) && int(i) < 91) {
                 szyfr.append(1, char((mnoznik * (int(i) - 65) + klucz) % 26 + 65));
@@ -16,18 +16,18 @@ std::string szyfrAfiniczny(std::string slowo, int mnoznik, int klucz, bool szyfr
                 szyfr.append(" ");
             }
         }
-    }else{
+    } else {
         // powinno byc zastapione rozszerzonym algorytmem euklidesa
         int odwr = 1;
-        while((odwr*mnoznik)%26 != 1){
+        while ((odwr * mnoznik) % 26 != 1) {
             odwr++;
         }
         //
         for (char i : slowo) {
             if (64 < int(i) && int(i) < 91) {
-                szyfr.append(1, char(( odwr * (int(i) - 65 - klucz)) % 26 + 65));
+                szyfr.append(1, char((odwr * (int(i) - 65 - klucz)) % 26 + 65));
             } else if (96 < int(i) && int(i) < 123) {
-                szyfr.append(1, char(( odwr * (int(i) - 97 + klucz)) % 26 + 97));
+                szyfr.append(1, char((odwr * (int(i) - 97 + klucz)) % 26 + 97));
             } else {
                 szyfr.append(" ");
             }
@@ -36,7 +36,7 @@ std::string szyfrAfiniczny(std::string slowo, int mnoznik, int klucz, bool szyfr
     return szyfr;
 }
 
-void runSzyfrAfiniczny(){
+void runSzyfrAfiniczny() {
 
     int i, klucz, mnoznik;
     std::string text, wynik;
@@ -54,7 +54,7 @@ void runSzyfrAfiniczny(){
     std::cout << "Podaj klucz: \n";
     std::cin >> klucz;
 
-    switch(i){
+    switch (i) {
         case 1:
             wynik = szyfrAfiniczny(text, mnoznik, klucz, true);
             break;
