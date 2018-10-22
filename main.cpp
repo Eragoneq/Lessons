@@ -2,7 +2,8 @@
 #include "basic_sort.cpp"
 #include "szyfr_afiniczny.cpp"
 #include "misc.cpp"
+#include "szyfr_vigenere.cpp"
 
 int main() {
-    std::cout << romanParser("MDCLXVI");
+    runSzyfrVigenere();
 }
