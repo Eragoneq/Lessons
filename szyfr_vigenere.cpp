@@ -8,14 +8,17 @@ std::string szyfrVigenere(std::string slowo, std::string klucz, bool szyfruj) {
     if(szyfruj){
         mnoznik=1;
     }else{
-        mnoznik=-1;
+        mnoznik=(-1);
     }
 
     for (char i : slowo) {
+        int x;
         if (64 < int(i) && int(i) < 91) {
-            szyfr.append(1, char((int(i) - 65 * 2 + int(klucz[licznik % klucz.length()])) % 26 + 65));
+            x = (int(i) - 65) + mnoznik*(int(klucz[licznik % klucz.length()]) - 65);
+            szyfr.append(1, char(x % 26 + (x % 26 < 0 ? 26 : 0) + 65));
         } else if (96 < int(i) && int(i) < 123) {
-            szyfr.append(1, char((int(i) - 97 * 2 + int(klucz[licznik % klucz.length()])) % 26 + 97));
+            x = (int(i) - 65) + mnoznik*(int(klucz[licznik % klucz.length()]) - 65);
+            szyfr.append(1, char(x % 26 + (x % 26 < 0 ? 26 : 0) + 97));
         } else {
             szyfr.append(" ");
             licznik--;
