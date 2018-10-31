@@ -6,7 +6,8 @@
 #include "srednia.cpp"
 #include "suma_cyfr.cpp"
 #include "rozwiaz_uklad.cpp"
+#include "obliczanie_wielomianu.cpp"
 
 int main() {
-    runRozwiazRownanie();
+    runObliczWielomian();
 }
