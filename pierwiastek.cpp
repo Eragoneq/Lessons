@@ -1,6 +1,8 @@
 #include <iostream>
 #include <cmath>
-
+///
+///  NIE DOKONCZONEEEE
+///
 float pierwiastek(float input, float x){
     float i;
     if(input>=2){
@@ -18,8 +20,11 @@ float pierwiastek(float input, float x){
 
 void runPierwiastek(){
     float x;
+    int y;
     std::cout << "Podaj liczbe do spierwiastkowania: \n";
     std::cin >> x;
+    std::cout << "Podaj stopien pierwiastka: \n";
+    std::cin >> y;
 
-    std::cout << pierwiastek(x) << " " << sqrt(x);
+    std::cout << pierwiastek(x, y);
 }
