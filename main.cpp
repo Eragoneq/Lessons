@@ -8,7 +8,10 @@
 #include "rozwiaz_uklad.cpp"
 #include "obliczanie_wielomianu.cpp"
 #include "pierwiastek.cpp"
+#include "silnia_reku.cpp"
+#include "slabnia_reku.cpp"
+#include "obliczanie_wielomianu_reku.cpp"
 
 int main() {
-    runPierwiastek();
+    runObliczWielomianReku();
 }
