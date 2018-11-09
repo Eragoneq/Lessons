@@ -11,7 +11,8 @@
 #include "silnia_reku.cpp"
 #include "slabnia_reku.cpp"
 #include "obliczanie_wielomianu_reku.cpp"
+#include "funkcja_ackermanna.cpp"
 
 int main() {
-    runObliczWielomianReku();
+    runAckermann();
 }
