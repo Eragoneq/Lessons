@@ -12,7 +12,9 @@
 #include "slabnia_reku.cpp"
 #include "obliczanie_wielomianu_reku.cpp"
 #include "funkcja_ackermanna.cpp"
+#include "fun.cpp"
+#include "ciekawe_mnozenia.cpp"
 
 int main() {
-    runAckermann();
+    runCiekaweMnozenia();
 }
