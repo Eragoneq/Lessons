@@ -16,7 +16,8 @@
 #include "ciekawe_mnozenia.cpp"
 #include "euklides_reku.cpp"
 #include "symbol_newtona.cpp"
+#include "binarny.cpp"
 
 int main() {
-    runObliczSymbol();
+    runBinary();
 }
