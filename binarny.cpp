@@ -1,27 +1,24 @@
 #include <iostream>
-#include <algorithm>
 
 int sys2dec(std::string liczba, int system){
     int wynik = 0;
-    int x = system;
     for (char i : liczba) {
-        wynik += int(i)-48;
-        wynik *= x;
+        wynik *= system;
+        if((i - '0')<10) {
+            wynik += (i - '0');
+        }else{
+            wynik += int(i)-55;
+        }
     }
-    return wynik/x;
+    return wynik;
 }
 
 std::string dec2sys(int liczba, int system) {
-    int wynik[32]={};
-    std::string str = "";
-    int x = system;
-    int i;
-    for(i = 0; liczba!=0; i++){
-        wynik[i]=liczba%x;
-        liczba/=x;
-    }
-    for(int j = i-1; j>=0; j--){
-        str+=char(wynik[j])+48;
+    char znaki[] = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
+    std::string str;
+    while(liczba>0){
+        str=znaki[liczba%system] + str;
+        liczba/=system;
     }
     return str;
 }

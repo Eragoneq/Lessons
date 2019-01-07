@@ -17,7 +17,9 @@
 #include "euklides_reku.cpp"
 #include "symbol_newtona.cpp"
 #include "binarny.cpp"
+#include "korale.cpp"
+#include "bit_test.cpp"
 
 int main() {
-    runBinary();
+    runSort();
 }
