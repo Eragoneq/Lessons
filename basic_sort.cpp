@@ -1,22 +1,9 @@
 #include <iostream>
-#include <random>
+#include "random.h"
 #include <array>
 #include <vector>
 
 #define SIZE 100
-
-unsigned long long rdtsc() {
-    unsigned int lo, hi;
-    __asm__ __volatile__ ("rdtsc" : "=a" (lo), "=d" (hi));
-    return (unsigned long long) hi << 32 | lo;
-}
-
-std::mt19937 rng(rdtsc()); // NOLINT(cert-err58-cpp)
-
-int randInt(int min, int max) {
-    std::uniform_int_distribution<int> uni(min, max);
-    return uni(rng);
-}
 
 std::array<int, SIZE> sort(std::array<int, SIZE> lista) {
     int mini, temp;

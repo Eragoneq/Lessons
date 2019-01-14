@@ -6,7 +6,7 @@
 #include "srednia.cpp"
 #include "suma_cyfr.cpp"
 #include "rozwiaz_uklad.cpp"
-#include "obliczanie_wielomianu.cpp"
+//#include "obliczanie_wielomianu.cpp"
 #include "pierwiastek.cpp"
 //#include "silnia_reku.cpp"
 #include "slabnia_reku.cpp"
@@ -19,7 +19,10 @@
 #include "binarny.cpp"
 #include "korale.cpp"
 #include "bit_test.cpp"
+#include "calki.cpp"
+#include "czastki_browna.cpp"
+#include "obliczanie_pi.cpp"
 
 int main() {
-    runSort();
+    runObliczPi();
 }

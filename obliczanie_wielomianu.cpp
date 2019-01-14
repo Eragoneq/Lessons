@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
 
-float obliczWielomian(std::vector<float> wsp, float x){
+double obliczWielomian(std::vector<float> wsp, double x){
     float wynik = 0;
     for (float i : wsp) {
         wynik += i;
