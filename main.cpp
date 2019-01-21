@@ -20,9 +20,10 @@
 #include "korale.cpp"
 #include "bit_test.cpp"
 #include "calki.cpp"
-#include "czastki_browna.cpp"
+#include "fraktale.cpp"
 #include "obliczanie_pi.cpp"
+#include "znajdowanie_miejsca_zerowego.cpp"
 
 int main() {
-    runObliczPi();
+    genPaprotkaBarsleya();
 }
