@@ -1,13 +1,11 @@
 #include <iostream>
 int sumaCyfr(int in){
-
     int suma;
-
+    suma = 0;
     while(in!=0){
         suma+=in%10;
         in/=10;
     }
-
     return suma;
 }
 

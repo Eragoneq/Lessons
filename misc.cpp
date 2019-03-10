@@ -1,6 +1,25 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
+#include <dirent.h>
+
+//wypisuje nazwy wszystkich plikow w directory
+void wypiszDir(std::string dirr){
+//    std::ofstream out("../../eragon_tu_byl.kek");
+//    out << "LUL";
+//    out.close();
+    DIR *dir;
+    struct dirent *ent;
+    if ((dir = opendir (dirr)) != nullptr) {
+        /* print all the files and directories within directory */
+        while ((ent = readdir (dir)) != nullptr) {
+            printf ("%s\n", ent->d_name);
+        }
+        closedir (dir);
+    } else {
+        /* could not open directory */
+        std::cout << "NOT FOUND";
+}
 
 // wypisuje srodkowe elementy ze stringa
 std::string get_middle(std::string input) {
