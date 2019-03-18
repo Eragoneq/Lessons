@@ -6,9 +6,9 @@
 //#include "srednia.cpp"
 //#include "suma_cyfr.cpp"
 //#include "rozwiaz_uklad.cpp"
-////#include "obliczanie_wielomianu.cpp"
+//#include "obliczanie_wielomianu.cpp"
 //#include "pierwiastek.cpp"
-////#include "silnia_reku.cpp"
+//#include "silnia_reku.cpp"
 //#include "slabnia_reku.cpp"
 //#include "obliczanie_wielomianu_reku.cpp"
 //#include "funkcja_ackermanna.cpp"
@@ -23,15 +23,8 @@
 //#include "fraktale.cpp"
 //#include "obliczanie_pi.cpp"
 //#include "znajdowanie_miejsca_zerowego.cpp"
-//#include "io_files.cpp"
-//#include "odwracanie_liczb.cpp"
-//#include "moc_liczby.cpp"
-//#include "trojkaty.cpp"
-//#include "ulamki.cpp"
-//#include "struktury.cpp"
-#include "vectors.cpp"
-#include "baza_danych.cpp"
+#include "moodle.cpp"
 
 int main() {
-    runVector();
+    runZadania();
 }
