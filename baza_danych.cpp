@@ -1,49 +1,34 @@
-#include <utility>
-
-#include <utility>
-
-#include <utility>
-
 #include <iostream>
 #include <fstream>
 #include <string>
 
 std::ifstream plik("baza/osoby.txt");
 
-struct osoba{
+struct czarodziej{
 private:
     std::string imie;
     std::string nazwisko;
-    std::string pesel;
-    std::string miasto;
+    std::string data;
+    std::string dom;
 public:
-    osoba(){
+    czarodziej(){
         plik >> imie;
         plik >> nazwisko;
-        plik >> pesel;
-        plik >> miasto;
+        plik >> data;
+        plik >> dom;
     }
-    osoba(std::string imie, std::string nazwisko, std::string pesel, std::string miasto):
-    imie(std::move(imie)), nazwisko(std::move(nazwisko)), pesel(std::move(pesel)), miasto(std::move(miasto)){}
-    std::string getName(){
+    czarodziej(std::string imie, std::string nazwisko, std::string data, std::string dom):
+    imie(std::move(imie)), nazwisko(std::move(nazwisko)), data(std::move(data)), dom(std::move(dom)){}
+    std::string getImie(){
         return imie;
     }
-    std::string getSurname(){
+    std::string getNazwisko(){
         return nazwisko;
     }
-    std::string getPESEL(){
-        return pesel;
+    std::string getData(){
+        return data;
     }
-    std::string getCity(){
-        return miasto;
-    }
-    std::string getSex(){
-        if(pesel[10]%2==0){
-            return "K";
-        }
-        return "M";
-    }
-    std::string getBirth(){
-
+    std::string getDom(){
+        return dom;
     }
 };

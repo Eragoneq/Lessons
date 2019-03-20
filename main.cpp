@@ -24,6 +24,7 @@
 //#include "obliczanie_pi.cpp"
 //#include "znajdowanie_miejsca_zerowego.cpp"
 #include "moodle.cpp"
+#include "baza_danych.cpp"
 
 int main() {
     runZadania();
