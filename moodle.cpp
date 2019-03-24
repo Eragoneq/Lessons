@@ -257,14 +257,14 @@ void zadanie10(){
 }
 
 void runZadania() {
-    zadanie1();
-    zadanie2();
-    zadanie3();
-    zadanie4();
-    zadanie5();
-    zadanie6();
-    zadanie7();
-    zadanie8();
-    zadanie9();
-    zadanie10();
+//    zadanie1();
+//    zadanie2();
+//    zadanie3();
+//    zadanie4();
+//    zadanie5();
+//    zadanie6();
+//    zadanie7();
+//    zadanie8();
+//    zadanie9();
+//    zadanie10();
 }

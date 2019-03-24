@@ -24,7 +24,10 @@
 //#include "obliczanie_pi.cpp"
 //#include "znajdowanie_miejsca_zerowego.cpp"
 #include "moodle.cpp"
+#include "gierki.cpp"
 
 int main() {
-    runZadania();
+    runGierki();
+    std::getchar();
+    std::getchar();
 }
