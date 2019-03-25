@@ -25,9 +25,8 @@
 //#include "znajdowanie_miejsca_zerowego.cpp"
 #include "moodle.cpp"
 #include "gierki.cpp"
+#include "zmienne.cpp"
 
 int main() {
-    runGierki();
-    std::getchar();
-    std::getchar();
+    runZmienne();
 }
