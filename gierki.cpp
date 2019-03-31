@@ -1,5 +1,4 @@
 #include <iostream>
-#include <windows.h>
 #include <vector>
 #include "random.h"
 #include "game_lib.h"

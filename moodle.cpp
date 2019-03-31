@@ -1,4 +1,5 @@
 #include <iostream>
+#include <string>
 #include <fstream>
 
 bool czyDoskonala(int liczba){
@@ -256,6 +257,44 @@ void zadanie10(){
     std::cout << licznik;
 }
 
+void zadanie11(){
+    std::string in;
+    int licznik = 0;
+    char poprzedni = ' ';
+    std::cin >> in;
+    for(char znak : in){
+        if(znak==poprzedni) licznik++;
+        else if (licznik==2){
+            std::cout << "TAK";
+            return;
+        }else{
+            licznik=0;
+        }
+        poprzedni=znak;
+        std::cout << licznik << " ";
+    }
+    if (licznik==2){
+        std::cout << "TAK";
+        return;
+    }
+    std::cout << "NIE";
+}
+
+void zadanie12(){
+    int klucz[2] = {5, 7};
+    std::string in, wynik;
+    std::cin >> in;
+    wynik = "";
+    for(char znak : in){
+        if(znak-'A' > znak > znak-'Z'){
+            wynik+=(char)((znak*klucz[0]+klucz[1])%26+'A');
+        } else if (znak-'a' > znak > znak-'z'){
+            wynik+=(char)((znak*klucz[0]+klucz[1])%26+'a');
+        }
+    }
+    std::cout << wynik;
+}
+
 void runZadania() {
 //    zadanie1();
 //    zadanie2();
@@ -267,4 +306,6 @@ void runZadania() {
 //    zadanie8();
 //    zadanie9();
 //    zadanie10();
+//    zadanie11();
+    zadanie12();
 }

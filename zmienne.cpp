@@ -24,13 +24,16 @@ int* funkcja(int t[]){
     t[0]=2;
     t[1]=1;
     t[2]=3;
-    t[4]=7;
+    t[3]=7;
     return t;
 }
 void tablica(){
     int tab[4];
-    std::cout << funkcja(tab) << "\n";
-    std::cout << tab+1;
+    int *wsk;
+    wsk = funkcja(tab);
+    std::cout << wsk << "\n";
+    std::cout << wsk+1 << "\n";
+    std::cout << *wsk << " " << *(wsk+1);
 }
 
 struct uczen{
@@ -42,8 +45,10 @@ void struktura(){
     uczen a;
     uczen* wsk;
     wsk = &a;
+    a.name = "kek";
+    std::cout << wsk->name << " " << sizeof(wsk);
 }
 void runZmienne(){
-
+    tablica();
 }
 

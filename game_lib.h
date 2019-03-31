@@ -1,5 +1,90 @@
 #ifndef PROJEKCIK_GAME_LIB_H
 #define PROJEKCIK_GAME_LIB_H
+#include <windows.h>
+#include <iostream>
+#include <memory>
+#include <vector>
+
+struct point{
+    point(int x, int y, char znak) : x(x), y(y), znak(znak) {}
+
+    point(int x, int y) : x(x), y(y){}
+
+    point() = default;
+
+    bool operator<(int x){
+        return (this->x < x && this->y < x);
+    }
+
+    int getX() const {
+        return x;
+    }
+
+    void setX(int x) {
+        point::x = x;
+    }
+
+    int getY() const {
+        return y;
+    }
+
+    void setY(int y) {
+        point::y = y;
+    }
+
+    char getZnak() const {
+        return znak;
+    }
+
+    void setZnak(char znak) {
+        point::znak = znak;
+    }
+
+private:
+    int x, y;
+    char znak{};
+};
+
+struct board{
+    explicit board(unsigned int size) : size(size) {
+        std::vector<point*> w(size*size);
+    }
+
+    void setPlansza(std::vector<char> lista) {
+        for (int i = 0; i < lista.size(); ++i) {
+            board::plansza.emplace_back(new point(i%size, i/size, lista[i]));
+        }
+    }
+
+    void addPoint(point* in){
+        plansza.emplace_back(in);
+    }
+
+    int getSize() const {
+        return size;
+    }
+
+    int getElements() const {
+        return size*size;
+    }
+
+    point* getPoint(int x, int y){
+        return &*plansza[y*size+x];
+    }
+
+    bool inPlansza(point in){
+        return in<this->size;
+    }
+
+    std::vector<std::shared_ptr<point>> &getPlansza() {
+        return plansza;
+    }
+
+private:
+    std::vector<std::shared_ptr<point>> plansza;
+    unsigned int size;
+};
+
 
 HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
 
@@ -23,7 +108,7 @@ void cls()
     SetConsoleCursorPosition( hConsole, coordScreen );
 }
 
-void narysujPlanszex(std::string name, int size, std::vector<char> tablica, bool isCheckered) {
+void narysujPlanszex(std::string name, int size, board tablica, bool isCheckered) {
     std::string spacing = (size>=10 ? "    " : "   ");
     std::cout << spacing << name << std::endl;
     // Oznaczenia gora
@@ -40,7 +125,7 @@ void narysujPlanszex(std::string name, int size, std::vector<char> tablica, bool
         for (int j = 0; j < size; j++) {
             std::cout << char(186);
             (i+j)%2==0 && isCheckered ? SetConsoleTextAttribute(hConsole, BACKGROUND_BLUE | BACKGROUND_GREEN | BACKGROUND_RED) : SetConsoleTextAttribute(hConsole, 15);
-            std::cout << " " << tablica[size * i + j] << " ";
+            std::cout << " " << tablica.getPoint(j, i)->getZnak() << " ";
             (i+j)%2==0 ? SetConsoleTextAttribute(hConsole, 15) : false;
         }
         std::cout << char(186) << std::endl;
@@ -54,7 +139,7 @@ void narysujPlanszex(std::string name, int size, std::vector<char> tablica, bool
     for (int j = 0; j < size; j++) {
         std::cout << char(186);
         ((size - 1)+j)%2==0 && isCheckered ? SetConsoleTextAttribute(hConsole, BACKGROUND_BLUE | BACKGROUND_GREEN | BACKGROUND_RED) : SetConsoleTextAttribute(hConsole, 15);
-        std::cout << " " << tablica[size * (size - 1) + j] << " ";
+        std::cout << " " << tablica.getPoint(j, (size - 1))->getZnak() << " ";
         ((size - 1)+j)%2==0 ? SetConsoleTextAttribute(hConsole, 15) : false;
     }
     std::cout << char(186) << std::endl;
@@ -62,5 +147,4 @@ void narysujPlanszex(std::string name, int size, std::vector<char> tablica, bool
     for (int i = 0; i < (size - 1); i++) std::cout << char(202) << char(205) << char(205) << char(205);
     std::cout << char(188) << std::endl;
 }
-
 #endif //PROJEKCIK_GAME_LIB_H
