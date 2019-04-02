@@ -57,7 +57,7 @@ struct pionek : point{
 
     explicit pionek(color color): type(type::NORMAL), color(color){};
 
-    pionek(){update();}
+    pionek() = default;
 
     void upgrade(){
         this->type = type::KING;
@@ -87,6 +87,19 @@ struct pionek : point{
                 this->color = color::BLANK;
                 break;
         }
+    }
+
+    bool validMove(int x, int y){
+        if(getType() == type::NORMAL){
+            if(getColor() == color::WHITE){
+                return ((getX()+1 == x) && (getY()+1 == y || getY()-1 == y));
+            }else{
+                return ((getX()-1 == x) && (getY()+1 == y || getY()-1 == y));
+            }
+        }else if(getType() == type::KING){
+            return (x-getX() == abs(y-getY()));
+        }
+        return false;
     }
 
     type getType() const {

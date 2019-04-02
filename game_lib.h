@@ -73,7 +73,7 @@ struct board{
     }
 
     bool inPlansza(point in){
-        return in<this->size;
+        return in < this->size;
     }
 
     std::vector<std::shared_ptr<point>> &getPlansza() {

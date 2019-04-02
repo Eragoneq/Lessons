@@ -1,5 +1,4 @@
 #include <iostream>
-#include <string>
 #include <fstream>
 
 bool czyDoskonala(int liczba){
@@ -257,42 +256,42 @@ void zadanie10(){
     std::cout << licznik;
 }
 
+using namespace std;
+
 void zadanie11(){
-    std::string in;
+    string in;
     int licznik = 0;
     char poprzedni = ' ';
-    std::cin >> in;
-    for(char znak : in){
-        if(znak==poprzedni) licznik++;
+    cin >> in;
+    for(int i  = 0; i < in.length(); i++){
+        if(in[i]==poprzedni) licznik++;
         else if (licznik==2){
-            std::cout << "TAK";
-            return;
+            break;
         }else{
             licznik=0;
         }
-        poprzedni=znak;
-        std::cout << licznik << " ";
+        poprzedni=in[i];
     }
-    if (licznik==2){
-        std::cout << "TAK";
-        return;
-    }
-    std::cout << "NIE";
+    if (licznik==2) cout << "TAK";
+    else cout << "NIE";
 }
 
 void zadanie12(){
-    int klucz[2] = {5, 7};
-    std::string in, wynik;
-    std::cin >> in;
+    int a,b;
+    a=5;
+    b=7;
+    string in, wynik;
+    cin >> in;
     wynik = "";
-    for(char znak : in){
-        if(znak-'A' > znak > znak-'Z'){
-            wynik+=(char)((znak*klucz[0]+klucz[1])%26+'A');
-        } else if (znak-'a' > znak > znak-'z'){
-            wynik+=(char)((znak*klucz[0]+klucz[1])%26+'a');
+    for(unsigned int i = 0; i<in.length(); i++){
+        char znak = in[i];
+        if('a' <= znak){
+            wynik+=char(((znak-' ')*a+b-'A')%26+'a');
+        } else if ('A' <= znak){
+            wynik+=char((znak*a+b-'A')%26+'A');
         }
     }
-    std::cout << wynik;
+    cout << wynik;
 }
 
 void runZadania() {
@@ -307,5 +306,5 @@ void runZadania() {
 //    zadanie9();
 //    zadanie10();
 //    zadanie11();
-    zadanie12();
+//    zadanie12();
 }

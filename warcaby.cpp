@@ -32,6 +32,17 @@ bool validChoice(std::string place, std::string target, board board, int runda){
     // poprawnosc podanych danych
     if(!(board.inPlansza({place[0] - 'A', place[1] - '1'}) && board.inPlansza({target[0] - 'A', target[1] - '1'}))) return false;
     //sprawdzenie czy istnieje pionek na miejscu
+    auto* player = (pionek*)board.getPoint(place[0] - 'A', place[1] - '1');
+    point* targetPoint = board.getPoint(target[0] - 'A', target[1] - '1');
+    if(player->getType() != type::NONE){
+        //wymagane bicie ma pierwszeństwo
+
+        //normalny ruch
+        if(player->validMove(targetPoint->getX(), targetPoint->getY()) && ((pionek*)targetPoint)->getType()==type::NONE){
+            player->setX(targetPoint->getX());
+            player->setY(targetPoint->getY());
+        }
+    }
 //    if((board[placeIndex]=='b' && runda%2==0) || (board[placeIndex]=='c' && runda%2==1)){
 //        if(targetIndex==(placeIndex-7) || targetIndex==(placeIndex-9) || targetIndex==(placeIndex+7) || targetIndex==(placeIndex+9)){
 //            if(board[targetIndex] == ' '){

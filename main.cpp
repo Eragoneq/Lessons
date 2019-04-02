@@ -23,7 +23,7 @@
 //#include "fraktale.cpp"
 //#include "obliczanie_pi.cpp"
 //#include "znajdowanie_miejsca_zerowego.cpp"
-//#include "moodle.cpp"
+#include "moodle.cpp"
 //#include "gierki.cpp"
 #include "warcaby.cpp"
 //#include "zmienne.cpp"
